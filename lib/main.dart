@@ -1,3 +1,4 @@
+import 'package:drippy/pages/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:drippy/partials/drawer.dart';
 
@@ -38,12 +39,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _number = -1;
+  int _number = 0;
   var cartItems = [];
 
   void _setInt(x) {
     setState(() {
       _number = x;
+    });
+  }
+
+  void _addToCart(e) {
+    setState(() {
+      cartItems = cartItems + [e];
+    });
+  }
+
+  void _removeFromCart(e) {
+    setState(() {
+      cartItems = cartItems
+          .where(
+              (element) => (element["key"].toString() != e["key"].toString()))
+          .toList();
+      // print(cartItems);
     });
   }
 
@@ -62,6 +79,9 @@ class _MyHomePageState extends State<MyHomePage> {
         drawer: SideDrawer(
           active: _number,
           change: _setInt,
+          addToCart: _addToCart,
+          removeFromCart: _removeFromCart,
+          cartItems: cartItems,
         ));
   }
 }
