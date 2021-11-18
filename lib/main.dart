@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Drippy Home Page'),
+      home: MyHomePage(title: 'Drippy'),
     );
   }
 }
@@ -39,6 +39,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _number = -1;
+  var cartItems = [];
+
   void _setInt(x) {
     setState(() {
       _number = x;
