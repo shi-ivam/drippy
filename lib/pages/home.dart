@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:drippy/partials/drawer.dart';
+import '../classes/product.dart';
 
 class FirstRoute extends StatelessWidget {
   const FirstRoute({Key? key, required this.active, required this.change})

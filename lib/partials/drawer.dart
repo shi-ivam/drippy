@@ -30,7 +30,7 @@ class _SideDrawerState extends State<SideDrawer> {
     return SafeArea(
       child: Drawer(
         child: ListView(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(0),
           children: [
             FlatButton(
               onPressed: () {
@@ -44,7 +44,13 @@ class _SideDrawerState extends State<SideDrawer> {
                             )));
               },
               color: widget.active == 0 ? Colors.blue : Colors.white,
-              child: Text('Home'),
+              child: Text(
+                'Home',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: widget.active == 0 ? Colors.white : Colors.black),
+              ),
+              padding: EdgeInsets.all(20),
             ),
             FlatButton(
               onPressed: () {
@@ -58,7 +64,13 @@ class _SideDrawerState extends State<SideDrawer> {
                             addToCart: widget.addToCart)));
               },
               color: widget.active == 1 ? Colors.blue : Colors.white,
-              child: Text('Shop'),
+              child: Text(
+                'Shop',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: widget.active == 1 ? Colors.white : Colors.black),
+              ),
+              padding: EdgeInsets.all(20),
             ),
             FlatButton(
               onPressed: () {
@@ -73,7 +85,13 @@ class _SideDrawerState extends State<SideDrawer> {
                             removeFromCart: widget.removeFromCart)));
               },
               color: widget.active == 2 ? Colors.blue : Colors.white,
-              child: Text('Cart'),
+              child: Text(
+                'Cart',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: widget.active == 2 ? Colors.white : Colors.black),
+              ),
+              padding: EdgeInsets.all(20),
             ),
             FlatButton(
               onPressed: () {
@@ -85,7 +103,13 @@ class _SideDrawerState extends State<SideDrawer> {
                             FourthRoute(active: 3, change: widget.change)));
               },
               color: widget.active == 3 ? Colors.blue : Colors.white,
-              child: Text('Create'),
+              child: Text(
+                'Create',
+                style: TextStyle(
+                    fontSize: 16,
+                    color: widget.active == 3 ? Colors.white : Colors.black),
+              ),
+              padding: EdgeInsets.all(20),
             ),
           ],
         ),

@@ -1,6 +1,6 @@
-import 'package:drippy/pages/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:drippy/partials/drawer.dart';
+import '../classes/product.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,7 +40,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _number = 0;
-  var cartItems = [];
+  List<Product> cartItems = [];
 
   void _setInt(x) {
     setState(() {
@@ -57,8 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   void _removeFromCart(e) {
     setState(() {
       cartItems = cartItems
-          .where(
-              (element) => (element["key"].toString() != e["key"].toString()))
+          .where((element) => (element.id.toString() != e.id.toString()))
           .toList();
       // print(cartItems);
     });

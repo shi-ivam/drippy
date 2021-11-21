@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../classes/product.dart';
+
 class ThirdRoute extends StatefulWidget {
   const ThirdRoute(
       {Key? key,
@@ -10,7 +12,7 @@ class ThirdRoute extends StatefulWidget {
       : super(key: key);
   final active;
   final change;
-  final cartItems;
+  final List<Product> cartItems;
   final removeFromCart;
 
   @override
@@ -57,8 +59,7 @@ class _ThirdRouteState extends State<ThirdRoute> {
                     child: Column(
                       children: [
                         Container(
-                          child: Image.network(
-                              "https://www.pngkit.com/png/full/217-2170686_belt-transparent-studded-studded-belt-transparent.png"),
+                          child: Image.network(e.image),
                         )
                       ],
                     ),
@@ -74,14 +75,14 @@ class _ThirdRouteState extends State<ThirdRoute> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          e["title"].toString(),
+                          e.title.toString(),
                           style: TextStyle(
-                            fontSize: 22,
+                            fontSize: 15,
                           ),
                         ),
-                        Text("\$ " + e["price"].toString(),
+                        Text("\$ " + e.price.toString(),
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 13,
                             ))
                       ],
                     ),
@@ -129,9 +130,8 @@ class _ThirdRouteState extends State<ThirdRoute> {
                                               change: widget.change,
                                               cartItems: widget.cartItems
                                                   .where((element) =>
-                                                      (element["key"]
-                                                              .toString() !=
-                                                          e["key"].toString()))
+                                                      (element.id.toString() !=
+                                                          e.id.toString()))
                                                   .toList(),
                                               removeFromCart:
                                                   widget.removeFromCart)));
